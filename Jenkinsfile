@@ -1,11 +1,11 @@
 node {
-    def app
-    stage ('clone repository') {
-        checkout scm
-    }
-    //stage ('Build Image') {
-      //  app = docker.build("secadmin15/labuser")
+//    def app
+  //  stage ('clone repository') {
+    //    checkout scm
     //}
+    stage ('Build Image') {
+       app = docker.build("secadmin15/labuser")
+    }
     //stage ('Test Image') {
       //  app.inside {
         //    sh 'echo "Test Passed"'
