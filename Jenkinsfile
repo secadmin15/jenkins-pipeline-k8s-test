@@ -5,7 +5,7 @@ node {
     //}
     stage ('Build Image') {
        app = docker.build("secadmin15/labuser")
-   // }
+    }
     //stage ('Test Image') {
       //  app.inside {
         //    sh 'echo "Test Passed"'
