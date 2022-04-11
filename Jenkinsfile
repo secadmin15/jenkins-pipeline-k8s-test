@@ -1,8 +1,8 @@
 node {
-//    def app
-  //  stage ('clone repository') {
-    //    checkout scm
-    //}
+    def app
+    stage ('clone repository') {
+        checkout scm
+    }
     stage ('Build Image') {
        app = docker.build("secadmin15/labuser")
     }
