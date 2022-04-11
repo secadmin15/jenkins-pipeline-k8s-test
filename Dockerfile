@@ -5,8 +5,8 @@ WORKDIR /usr/src/app
 
 # Hardening Scripts
 USER root
-ADD cis.sh /
-RUN /bin/bash "/cis.sh"
+ADD docker-bench-security.sh /
+RUN /bin/bash "/docker-bench-security.sh"
 HEALTHCHECK CMD exit 0
 
 
