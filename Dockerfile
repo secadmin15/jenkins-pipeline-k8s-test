@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 # Hardening Scripts
 USER root
-ADD docker-bench-security/docker-bench-security.sh /
+ADD /docker-bench-security/docker-bench-security.sh /
 RUN /bin/bash "/docker-bench-security.sh"
 HEALTHCHECK CMD exit 0
 
