@@ -10,7 +10,7 @@ node {
         app.inside {
             sh 'echo "Test Passed"'
         }
-    //}
+    }
     //stage ('Hardening scripts') {
       //  sh 'chmod +x validation.sh'
       //  sh "./validation.sh > out.txt"
