@@ -10,7 +10,7 @@ sudo bash docker-bench-security.sh > /jobsdata/stdout.txt
 chmod +x /jobsdata/stdout.txt
 a=`cat /jobsdata/stdout.txt | grep -i Score: | awk {'print $3'}`
 
-if [ $a -gt -5 ];
+if [ $a -gt 5 ];
 then
         echo "SUCCESS"
 else
