@@ -23,9 +23,9 @@ node {
         sh 'echo `cat /jobsdata/stdout.txt | tail -n3 |  cut -d " " -f 2,3` '
     }
    stage('Push Image to DockerHub') {
-       steps {
-            script {
-                if (env.STATUS == 'SUCCESS1') {
+       //steps {
+            //script {
+               //if (env.STATUS == 'SUCCESS1') {
                     if (myVar == 'success') {
                         echo 'SUCCESS **************'
                         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_secadmin') {
@@ -34,9 +34,9 @@ node {
                             } else {
                         echo 'Not SUCCESS *********'
                             }
-                        }
-               }
-    }
+                        //}
+               //}
+    //}
          
    // stage('Push image') {
      //   when {
