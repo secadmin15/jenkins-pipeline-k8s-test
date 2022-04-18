@@ -27,7 +27,7 @@ node {
             //script {
                //if (env.STATUS == 'SUCCESS1') {
                     if (myVar == '>>>>> SUCCESS!!! <<<<') {
-                        echo 'Validation SUCCESS - Image To Be Pushed Now To DockerHub'
+                        echo 'CIS Validation SUCCESS - Image To Be Pushed Now To DockerHub'
                         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_secadmin') {
                                app.push("${env.BUILD_NUMBER}")
                         }
