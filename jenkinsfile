@@ -11,16 +11,16 @@ node {
             sh 'echo "Test Passed"'
         }
     }
-    //stage ('Hardening scripts') {
-      //  sh 'chmod +x validation.sh'
-      //  sh "./validation.sh > out.txt"
-      //  script {
-         //   myVar = readFile('out.txt').trim()
-        //}
-        //echo "${myVar}"
-        //echo "Please find the checks and score below"
-        //sh 'echo `cat /jobsdata/stdout.txt | tail -n3 |  cut -d " " -f 2,3` '
-    //}
+    stage ('Hardening scripts') {
+        sh 'chmod +x validation.sh'
+        sh "./validation.sh > out.txt"
+        script {
+            myVar = readFile('out.txt').trim()
+        }
+        echo "${myVar}"
+        echo "Please find the checks and score below"
+        sh 'echo `cat /jobsdata/stdout.txt | tail -n3 |  cut -d " " -f 2,3` '
+    }
    //stage('Push Image to DockerHub') {
       // steps {
         //    script {
