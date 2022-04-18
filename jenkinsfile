@@ -27,12 +27,12 @@ node {
             //script {
                //if (env.STATUS == 'SUCCESS1') {
                     if (myVar == 'success') {
-                        echo 'SUCCESS **************'
+                        echo 'Golden Image Pushed to DockerHub Successfully'
                         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_secadmin') {
                                app.push("${env.BUILD_NUMBER}")
                         }
                             } else {
-                        echo 'Not SUCCESS *********'
+                        echo 'Golden Image Not Pushed to DockerHub as CIS Score Not Achieved'
                             }
                         //}
                //}
