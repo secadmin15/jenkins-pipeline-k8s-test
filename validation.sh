@@ -12,9 +12,9 @@ a=`cat /jobsdata/stdout.txt | grep -i Score: | awk {'print $3'}`
 
 if [ $a -gt 5 ];
 then
-        echo ">>>>>SUCCESS<<<<<"
+        echo "\e[1;32m >>>>>SUCCESS<<<<< \e[0m"
 else
-        echo ">>>>>FAILURE<<<<<"
+        echo "\e[1;31m >>>>>FAILURE<<<<< \e[0m"
 fi
 #cp -f /jobsdata/stdout.txt /jobsdata/stdout-`date`.txt
 #rm -f /jobsdata/stdout.txt
