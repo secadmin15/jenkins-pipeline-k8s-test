@@ -12,8 +12,8 @@ node {
         }
     }
     stage ('Hardening scripts') {
-        //sh 'chmod +x validation.sh'
-	sh 'chmod +x ./validation.sh'
+        sh 'chmod +x validation.sh'
+	//sh 'chmod +x ./validation.sh'
         sh "./validation.sh > out.txt"
         script {
             myVar = readFile('out.txt').trim()
