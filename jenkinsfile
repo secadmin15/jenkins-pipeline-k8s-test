@@ -4,7 +4,7 @@ node {
         checkout scm
     }
     stage ('Build Image') {
-       app = docker.build("secadmin15/labuser")
+       app = docker.build("mohammed-test-repo/cust_image")
     }
     stage ('Test Image') {
         app.inside {
@@ -25,15 +25,9 @@ node {
 	stage('Push Image to JFrog') {
                     if (myVar == '>>>>> SUCCESS!!! <<<<') {
                         echo 'CIS Validation SUCCESS - Image To Be Pushed Now To DockerHub'
-                        rtDockerPush(
-			serverId: "mohammed-test-repo",
-			image: "http://ec2-43-204-10-182.ap-south-1.compute.amazonaws.com:8082/mohammed-test-repo/secadmin15/labuser:latest",
-			host: 'tcp://0.0.0.0:0',
-			targetRepo: 'http://ec2-43-204-10-182.ap-south-1.compute.amazonaws.com:8082/artifactory/mohammed-test-repo/', // where to copy to (from docker-virtual)
-			// Attach custom properties to the published artifacts:
-			properties: 'project-name=docker1;status=stable'
-							)
-                            } else {
+                        docker.withRegistry('http://43.204.10.182:8082', 'JFrog_rt') {
+                               app.push("${env.BUILD_NUMBER}")
+				                            } else {
                         echo 'Push Image FAILED As CIS Score Not Achieved'
                             }
    //stage('Push Image to DockerHub') {
