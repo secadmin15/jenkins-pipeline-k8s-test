@@ -27,6 +27,7 @@ node {
                         echo 'CIS Validation SUCCESS - Image To Be Pushed Now To DockerHub'
                         docker.withRegistry('http://43.204.10.182:8082', 'JFrog_rt') {
                                app.push("${env.BUILD_NUMBER}")
+			}
 				                            } else {
                         echo 'Push Image FAILED As CIS Score Not Achieved'
                             }
