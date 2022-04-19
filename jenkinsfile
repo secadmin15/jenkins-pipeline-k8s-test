@@ -26,12 +26,12 @@ node {
                     if (myVar == '>>>>> SUCCESS!!! <<<<') {
                         echo 'CIS Validation SUCCESS - Image To Be Pushed Now To DockerHub'
                         rtDockerPush(
-							serverId: "jFrog-ar1",
-							image: "10.20.111.23:8081/docker-virtual/hello-world:latest",
-							host: 'tcp://localhost:2375',
-							targetRepo: 'local-repo', // where to copy to (from docker-virtual)
-							// Attach custom properties to the published artifacts:
-							properties: 'project-name=docker1;status=stable'
+			serverId: "mohammed-test-repo",
+			image: "secadmin15/labuser:latest",
+			host: 'http://43.204.10.182:',
+			targetRepo: 'http://ec2-43-204-10-182.ap-south-1.compute.amazonaws.com:8082/artifactory/mohammed-test-repo/', // where to copy to (from docker-virtual)
+			// Attach custom properties to the published artifacts:
+			properties: 'project-name=docker1;status=stable'
 							)
                             } else {
                         echo 'Push Image FAILED As CIS Score Not Achieved'
