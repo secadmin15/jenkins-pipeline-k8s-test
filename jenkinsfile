@@ -28,7 +28,7 @@ node {
                         rtDockerPush(
 			serverId: "mohammed-test-repo",
 			image: "http://ec2-43-204-10-182.ap-south-1.compute.amazonaws.com:8082/mohammed-test-repo/secadmin15/labuser:latest",
-			host: 'tcp://0.0.0.0:2375',
+			host: 'tcp://0.0.0.0:0',
 			targetRepo: 'http://ec2-43-204-10-182.ap-south-1.compute.amazonaws.com:8082/artifactory/mohammed-test-repo/', // where to copy to (from docker-virtual)
 			// Attach custom properties to the published artifacts:
 			properties: 'project-name=docker1;status=stable'
