@@ -22,18 +22,32 @@ node {
         echo "Please find the checks and score below"
         sh 'echo `cat /jobsdata/stdout.txt | tail -n3 |  cut -d " " -f 2,3` '
     }
-   stage('Push Image to DockerHub') {
-       //steps {
-            //script {
-               //if (env.STATUS == 'SUCCESS1') {
+	stage('Push Image to JFrog') {
                     if (myVar == '>>>>> SUCCESS!!! <<<<') {
                         echo 'CIS Validation SUCCESS - Image To Be Pushed Now To DockerHub'
-                        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_secadmin') {
-                               app.push("${env.BUILD_NUMBER}")
-                        }
+                        rtDockerPush(
+							serverId: "jFrog-ar1",
+							image: "10.20.111.23:8081/docker-virtual/hello-world:latest",
+							host: 'tcp://localhost:2375',
+							targetRepo: 'local-repo', // where to copy to (from docker-virtual)
+							// Attach custom properties to the published artifacts:
+							properties: 'project-name=docker1;status=stable'
+							)
                             } else {
                         echo 'Push Image FAILED As CIS Score Not Achieved'
                             }
+   //stage('Push Image to DockerHub') {
+       //steps {
+            //script {
+               //if (env.STATUS == 'SUCCESS1') {
+                    //if (myVar == '>>>>> SUCCESS!!! <<<<') {
+                      //  echo 'CIS Validation SUCCESS - Image To Be Pushed Now To DockerHub'
+                        //docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_secadmin') {
+                          //     app.push("${env.BUILD_NUMBER}")
+                        //}
+                          //  } else {
+                        //echo 'Push Image FAILED As CIS Score Not Achieved'
+                          //  }
                         //}
                //}
     //}
