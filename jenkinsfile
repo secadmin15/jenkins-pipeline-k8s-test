@@ -24,7 +24,7 @@ node {
     }
 	stage('Push Image to JFrog') {
                     if (myVar == '>>>>> SUCCESS!!! <<<<') {
-                        echo 'CIS Validation SUCCESS - Image To Be Pushed Now To DockerHub'
+                        echo 'CIS Validation SUCCESS - Image To Be Pushed Now To JFrog Artifactory'
                         docker.withRegistry('https://172.168.1.180:8082', 'JFrog_rt') {
                                app.push("${env.BUILD_NUMBER}")
 			}
