@@ -23,13 +23,13 @@ node {
         sh 'echo `cat /jobsdata/stdout.txt | tail -n3 |  cut -d " " -f 2,3` '
     }
 	stage('Push Image to JFrog') {
-                    if (myVar == '>>>>> SUCCESS!!! <<<<') {
-                        echo 'CIS Benchmark Target Score Achieved - Image To Be Pushed Now To JFrog Artifactory'
+                    if (myVar == '***** SUCCESS! *****') {
+                        echo '***** CIS Benchmark Target Score Achieved - Image To Be Pushed Now To JFrog Artifactory! *****'
                         docker.withRegistry('https://localhost:8082', 'JFrog_rt') {
                                app.push("${env.BUILD_NUMBER}")
 			}
 				                            } else {
-                        echo 'Image Push to JFrog Artifactory FAILED As CIS Benchmark Target Score Not Achieved'
+                        echo '***** Image Push to JFrog Artifactory FAILED As CIS Benchmark Target Score Not Achieved! *****'
                             }
    //stage('Push Image to DockerHub') {
        //steps {
